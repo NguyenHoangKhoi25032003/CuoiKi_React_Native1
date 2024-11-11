@@ -106,8 +106,9 @@ const BikeDetailScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-     <Image source={{uri:bike.image}} style={styles.imageLarge} />
-     <Image source={{uri:".https://khoihoang.sirv.com/Img/bike_1.png"}} style={styles.imageLarge} />
+     <Image source={{ uri: bike.image }} style={styles.imageLarge} />
+
+     <Image source={require('./assets/bike_1.png')} style={styles.imageLarge} />
       <Text style={styles.name}>{bike.name}</Text>
       <Text style={styles.description}>{bike.description}</Text>
       <Text>
