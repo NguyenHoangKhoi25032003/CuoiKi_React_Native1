@@ -6,16 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, Text, Button, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-// MockAPI URL (Replace with your actual MockAPI endpoint)
+
 const MOCK_API_URL = 'https://6703916dab8a8f892730abc4.mockapi.io/Bike';
 
-// Fetch Bikes Thunk
+
 const fetchBikes = createAsyncThunk('bikes/fetchBikes', async () => {
   const response = await axios.get(MOCK_API_URL);
   return response.data;
 });
 
-// Redux Slice
+
 const bikeSlice = createSlice({
   name: 'bikes',
   initialState: {
@@ -48,7 +48,7 @@ const bikeSlice = createSlice({
 const { addToCart } = bikeSlice.actions;
 const store = configureStore({ reducer: { bikes: bikeSlice.reducer } });
 
-// Navigation Stack
+
 const Stack = createStackNavigator();
 
 const IntroScreen = ({ navigation }) => (
@@ -106,8 +106,8 @@ const BikeDetailScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-     <Image source={require('./assets/bike_1.png')} style={styles.imageLarge} />
-
+     <Image source={{uri:bike.image}} style={styles.imageLarge} />
+     <Image source={{uri:".https://khoihoang.sirv.com/Img/bike_1.png"}} style={styles.imageLarge} />
       <Text style={styles.name}>{bike.name}</Text>
       <Text style={styles.description}>{bike.description}</Text>
       <Text>
@@ -151,13 +151,13 @@ const styles = StyleSheet.create({
   activeFilterText: { color: '#d10000', fontWeight: 'bold' },
   cardWrapper: {
     flex: 1,
-    marginVertical: 10, // Adds space between rows
+    marginVertical: 10, 
   },
   bikeCard: {
     backgroundColor: '#fff',
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: 'white',  // Pink border
+    borderColor: 'white',  
     padding: 10,
     alignItems: 'center',
     position: 'relative',
